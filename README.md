@@ -69,5 +69,3 @@ Acting as the IT support technician, I built a small Windows enterprise environm
 VirtualBox · Windows Server 2022 · Windows 11 · PowerShell · Active Directory / DNS · Generative AI (assistant, verified)
 
 ---
-
-_Some result fields above are placeholders — fill them in with your actual findings before publishing._
