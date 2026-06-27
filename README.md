@@ -6,6 +6,10 @@ Stand up a Windows Server domain from scratch, run a disruptive migration that i
 
 **Author:** Amanda Kondrat'yev  ·  **Status:** Phases 1–3 complete (build, migration, investigation). Phase 4 (corrective fixes) not undertaken; Phase 5 reporting included — full report, reflection, and a standalone [executive summary](docs/Executive-Summary.md) (see report)
 
+**Results at a glance** — ✅ Phase 1 verified **all-PASS** · 🔧 Phase 2 migration executed · 🔎 **6 / 6** post-migration incidents root-caused from evidence
+
+<img src="screenshots/phase1/13-verification-pass.png" alt="Phase 1 verification script returning PASS on every check" width="720">
+
 ---
 
 ## The problem
@@ -38,6 +42,52 @@ A small enterprise needs a domain environment migrated without losing stability.
 3. **Incident Response** *(complete).* Investigated all six post-migration tickets on both machines with read-only diagnostics (Event Viewer, `gpresult`, DNS, and service / secure-channel / time checks). Findings: the share's NTFS `Modify` entry was stripped (Access Denied), a new `Baseline-User-Policy` GPO appeared, the printer was removed, and some services stopped — while DNS, secure channel, and time stayed healthy.
 4. **Stabilization & Recovery** *(not undertaken).* The Phase 3 diagnoses identify what each fix would target; this step was not carried out — see the report's Project Status section.
 5. **Reporting & Reflection** *(complete for the work performed).* The full technical report, a written reflection, and a standalone [executive summary](docs/Executive-Summary.md) are included — covering Phases 1–3, since the Phase 4 fixes were not applied.
+
+## Evidence
+
+A few representative captures below; the complete set lives in [`screenshots/`](screenshots/).
+
+**Active Directory — users, groups, and the secured `SharedData` share (Phase 1)**
+
+<img src="screenshots/phase1/09-users-groups-share.png" alt="Domain users, the FileShareUsers group, and the SharedData SMB share" width="720">
+
+**The incident — "Access is denied" to the share after migration (Phase 3, INC-001)**
+
+<img src="screenshots/phase3/01-inc001-access-denied.png" alt="Client receiving Access is denied when opening the shared folder" width="720">
+
+<details>
+<summary><b>📸 Full evidence gallery — all phases</b></summary>
+
+<br>
+
+**Phase 1 — build & verification**
+
+![VirtualBox Extension Pack 7.2.10 installed and active](screenshots/phase1/01-virtualbox-extension-pack.png)
+![VirtualBox version confirmed via Help > About](screenshots/phase1/02-virtualbox-version.png)
+![MIG-SRV01 VM settings — Windows Server 2022 on an internal-only network](screenshots/phase1/03-server-vm-settings.png)
+![Windows Server 2022 desktop and Server Manager on first sign-in](screenshots/phase1/04-server-desktop.png)
+![MIG-CLI01 VM settings — Windows 11 with TPM 2.0, Secure Boot, and EFI](screenshots/phase1/05-client-vm-settings.png)
+![Clean pre-configuration snapshot of the VMs](screenshots/phase1/06-clean-snapshot.png)
+![Server static IP and DNS configuration (ipconfig)](screenshots/phase1/07-server-ipconfig.png)
+![Active Directory Domain Services role installed](screenshots/phase1/08-adds-role-installed.png)
+![Domain users, the FileShareUsers group, and the SharedData SMB share](screenshots/phase1/09-users-groups-share.png)
+![Client static IP with DNS pointed at the domain controller](screenshots/phase1/10-client-ipconfig.png)
+![Client signed in as MIGRATION\MigrationUser — centralized authentication](screenshots/phase1/11-domain-login.png)
+![MigrationUser reading and writing the \\MIG-SRV01\SharedData share](screenshots/phase1/12-share-access.png)
+![Phase 1 verification script returning PASS on every check](screenshots/phase1/13-verification-pass.png)
+![Server System Properties showing migration.local domain membership](screenshots/phase1/14-server-system-properties.png)
+
+**Phase 2 — migration event**
+
+![Migration script run to completion on the domain controller](screenshots/phase2/01-migration-complete.png)
+
+**Phase 3 — incident response**
+
+![INC-001 — client receiving "Access is denied" on the shared folder](screenshots/phase3/01-inc001-access-denied.png)
+![Phase 3 server-side diagnostics — share and NTFS permissions](screenshots/phase3/02-server-diagnostics.png)
+![Phase 3 client-side diagnostics — gpresult, services, DNS, and secure channel](screenshots/phase3/03-client-diagnostics.png)
+
+</details>
 
 ## Engineering practices on display
 
