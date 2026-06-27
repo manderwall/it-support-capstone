@@ -4,7 +4,7 @@
 
 Stand up a Windows Server domain from scratch, run a disruptive migration that intentionally breaks it, then investigate and stabilize the fallout — with every step scripted, evidence-captured, and documented end to end.
 
-**Author:** Amanda Kondrat'yev  ·  **Status:** Phases 1–3 complete (build, migration, investigation) — Phases 4–5 not undertaken (see report)
+**Author:** Amanda Kondrat'yev  ·  **Status:** Phases 1–3 complete (build, migration, investigation). Phase 4 (corrective fixes) not undertaken; Phase 5 reporting included — full report, reflection, and a standalone [executive summary](docs/Executive-Summary.md) (see report)
 
 ---
 
@@ -37,7 +37,7 @@ A small enterprise needs a domain environment migrated without losing stability.
 2. **Migration Event** *(complete).* Snapshotted both VMs, then executed the provided migration once on the server and recorded its completion — no other changes, so the fallout could be investigated cleanly.
 3. **Incident Response** *(complete).* Investigated all six post-migration tickets on both machines with read-only diagnostics (Event Viewer, `gpresult`, DNS, and service / secure-channel / time checks). Findings: the share's NTFS `Modify` entry was stripped (Access Denied), a new `Baseline-User-Policy` GPO appeared, the printer was removed, and some services stopped — while DNS, secure channel, and time stayed healthy.
 4. **Stabilization & Recovery** *(not undertaken).* The Phase 3 diagnoses identify what each fix would target; this step was not carried out — see the report's Project Status section.
-5. **Reporting & Reflection** *(not undertaken).* The technical report through Phase 3 is included; the standalone executive summary was not produced.
+5. **Reporting & Reflection** *(complete for the work performed).* The full technical report, a written reflection, and a standalone [executive summary](docs/Executive-Summary.md) are included — covering Phases 1–3, since the Phase 4 fixes were not applied.
 
 ## Engineering practices on display
 
@@ -78,7 +78,10 @@ Each block re-arms the evidence capture and saves transcripts/screenshots to `C:
 ├─ .gitignore
 ├─ docs/
 │   ├─ Amanda Kondrat'yev.Capstone.pdf      # full technical report — start here
-│   └─ Amanda Kondrat'yev.Capstone.docx     # editable source of the report
+│   ├─ Amanda Kondrat'yev.Capstone.docx     # editable source of the report
+│   ├─ Executive-Summary.md                 # one-page plain-language overview
+│   ├─ Executive-Summary.pdf                # executive summary (PDF)
+│   └─ Executive-Summary.docx               # executive summary (editable source)
 ├─ scripts/
 │   ├─ MIG-SRV01_Server_Setup.ps1           # domain controller build
 │   ├─ MIG-CLI01_Client_Setup.ps1           # client build & domain join
