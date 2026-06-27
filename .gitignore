@@ -1,0 +1,29 @@
+# ---- Large installation media: never commit ISOs ----
+*.iso
+
+# ---- Instructor "black-box" course materials (not my work, do not publish) ----
+Phase1-EnvironmentVerification.ps1
+Phase2-MigrationEvent.ps1
+
+# ---- Raw evidence transcripts (publish curated screenshots instead) ----
+*transcript_*.txt
+CapstoneEvidence/
+
+# ---- Secrets (none are used in this project, but guard anyway) ----
+.env
+*.env
+*.key
+*.pem
+*.pfx
+secrets.*
+credentials.*
+
+# ---- OS / editor / Office cruft ----
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+*~
+.vscode/
+.idea/
