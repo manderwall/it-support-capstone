@@ -83,7 +83,7 @@ Each block re-arms the evidence capture and saves transcripts/screenshots to `C:
 │   ├─ MIG-SRV01_Server_Setup.ps1           # domain controller build
 │   ├─ MIG-CLI01_Client_Setup.ps1           # client build & domain join
 │   ├─ Phase3-Investigation.ps1             # read-only diagnostics
-│   ├─ Phase4-Verification.ps1              # fix verification
+│   ├─ Phase4-Verification.ps1              # fix verification (prepared, not run)
 │   └─ Evidence-Helpers.ps1                 # transcript + screenshot capture
 └─ screenshots/
     ├─ phase1/                              # build & verification evidence
