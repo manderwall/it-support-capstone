@@ -65,7 +65,7 @@ A few representative captures below; the complete set lives in [`screenshots/`](
 ![VirtualBox Extension Pack 7.2.10 installed and active](screenshots/phase1/01-virtualbox-extension-pack.png)
 ![VirtualBox version confirmed via Help > About](screenshots/phase1/02-virtualbox-version.png)
 ![MIG-SRV01 VM settings — Windows Server 2022 on an internal-only network](screenshots/phase1/03-server-vm-settings.png)
-![Windows Server 2022 desktop and Server Manager on first sign-in](screenshots/phase1/04-server-desktop.png)
+![Windows Server 2022 desktop on first sign-in](screenshots/phase1/04-server-desktop.png)
 ![MIG-CLI01 VM settings — Windows 11 with TPM 2.0, Secure Boot, and EFI](screenshots/phase1/05-client-vm-settings.png)
 ![Clean pre-configuration snapshot of the VMs](screenshots/phase1/06-clean-snapshot.png)
 ![Server static IP and DNS configuration (ipconfig)](screenshots/phase1/07-server-ipconfig.png)
