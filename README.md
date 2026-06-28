@@ -84,8 +84,8 @@ A few representative captures below; the complete set lives in [`screenshots/`](
 **Phase 3 — incident response**
 
 ![INC-001 — client receiving "Access is denied" on the shared folder](screenshots/phase3/01-inc001-access-denied.png)
-![Phase 3 server-side diagnostics — share and NTFS permissions](screenshots/phase3/02-server-diagnostics.png)
-![Phase 3 client-side diagnostics — gpresult, services, DNS, and secure channel](screenshots/phase3/03-client-diagnostics.png)
+![Phase 3 server-side diagnostics — AD, DNS, and time services healthy, with the new Baseline-User-Policy GPO present](screenshots/phase3/02-server-diagnostics.png)
+![Phase 3 client-side diagnostics — DNS resolution, secure channel, and time sync all healthy](screenshots/phase3/03-client-diagnostics.png)
 
 </details>
 
